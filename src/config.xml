@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<operator xmlns="http://wirecloud.conwet.fi.upm.es/ns/macdescription/1" vendor="Vendor" name="test-generic-ngsimodel"
+          version="0.1.1a32">
+
+    <details>
+        <title>FIWARE data model To PoI</title>
+        <homepage>https://github.com/wirecloud-fiware/ngsi-datamodel2poi-operator</homepage>
+        <authors>Pablo Aznárez &lt;paznarez@ficodes.com&gt;</authors>
+        <email>paznarez@ficodes.com</email>
+        <image>images/catalogue.png</image>
+        <description>Convert NGSI entities using any of the available FIWARE data models into Point of Interests (usable by map widgets).</description>
+        <longdescription>DESCRIPTION.md</longdescription>
+        <license>Apache License 2.0</license>
+        <licenseurl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseurl>
+        <doc>doc/userguide.md</doc>
+        <changelog>doc/changelog.md</changelog>
+        <issuetracker>https://github.com/wirecloud-fiware/ngsi-datamodel2poi-operator/issues</issuetracker>
+    </details>
+
+    <requirements>
+        <!-- Add any extra requirements here -->
+        <!-- <feature name="${feature-name}" /> -->
+    </requirements>
+
+    <preferences>
+        <preference
+                name="schemas_host"
+                type="text"
+                label="Url where the schemas definition are hosted"
+                description="For example http://nginxserver.com/schemasDef.json"
+                default=""/>
+        <preference
+                name="assets_host"
+                type="text"
+                label="Url where the schemas,icons and templates are hosted"
+                description="For example http://nginxserver.com/"
+                default=""/>
+        <preference
+                name="icons_path"
+                type="text"
+                label="Path to icons "
+                description="For example: icons ( the result will be http://nginxserver.com/icons )"
+                default=""/>
+        <preference
+                name="views_path"
+                type="text"
+                label="Path to views"
+                description="For example: views ( the result will be http://nginxserver.com/views )"
+                default=""/>
+        <preference
+                name="ngsi_types"
+                type="text"
+                label="Ngsi types"
+                description="A comma separated list of ngsi types to build pois."
+                default=""/>
+    </preferences>
+
+    <wiring>
+        <inputendpoint
+                name="EntityInput"
+                type="text"
+                label="Entity ID"
+                description="Entity ID for historical information"
+                friendcode="Entity"
+        />
+        <outputendpoint
+                name="poiOutput"
+                type="text"
+                label="Historical Information"
+                description="Historical Information"
+                friendcode="poiOutput"
+        />
+    </wiring>
+
+    <scripts>
+        <script src="js/main.js"/>
+    </scripts>
+
+</operator>
