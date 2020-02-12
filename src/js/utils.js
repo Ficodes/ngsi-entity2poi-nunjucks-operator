@@ -88,4 +88,3 @@ export const internalUrl = function internalUrl (data) {
   url.setAttribute('href', data)
   return url.href
 }
-

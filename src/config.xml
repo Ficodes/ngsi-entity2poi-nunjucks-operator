@@ -24,27 +24,27 @@
 
     <preferences>
         <preference
-                name="schemas_host"
+                name="schemas_file_host"
                 type="text"
-                label="Url where the schemas definition are hosted"
-                description="For example http://nginxserver.com/schemasDef.json"
+                label="Schemas json file"
+                description="Example: http://nginxserver.com/schemasDef.json"
                 default=""/>
         <preference
                 name="assets_host"
                 type="text"
-                label="Url where the schemas,icons and templates are hosted"
-                description="For example http://nginxserver.com/"
+                label="Assets host"
+                description="Url where the schemas,icons and templates are hosted. Example http://nginxserver.com/"
                 default=""/>
         <preference
                 name="icons_path"
                 type="text"
-                label="Path to icons "
+                label="Icons Path"
                 description="For example: icons ( the result will be http://nginxserver.com/icons )"
                 default=""/>
         <preference
                 name="views_path"
                 type="text"
-                label="Path to views"
+                label="Views Path"
                 description="For example: views ( the result will be http://nginxserver.com/views )"
                 default=""/>
         <preference
