@@ -54,10 +54,9 @@ To check if property exists explanation for icon:
                     // if the object does not contain, stop all othe conditions and return success value
                     'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/location-64.png'
                     // we could add "failure" param to return value on fail
-                    //'failure': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/failure.png'
-                } 
+                    // "failure": "https://cdn0.iconfinder.com/data/icons/4web-3/139/failure.png"
             },
-            //the name and the "params.property" must be have the same value
+            // the name and the "params.property" must be have the same value
             'name': 'availableSpotNumber',
             'priority': 10,
             'conditions': {
@@ -81,7 +80,7 @@ To check if property exists explanation for icon:
 Example to define template property: 
 ```json
 {
-  'infoWindow': '{%OffStreetParking.html%}',}
+  'infoWindow': '{%OffStreetParking.html%}'
 }
 ```
 
@@ -185,7 +184,7 @@ Complete example for offStreetParking:
         ]
     },
     'tooltip': 'id',
-    // $ ( refers to the entire object using the jsonpath )
+    // $ refers to the entire object using the jsonpath
     'data': '$',
     // will catch the first property found
     'title': [
