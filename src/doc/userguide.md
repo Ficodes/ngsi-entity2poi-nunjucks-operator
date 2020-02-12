@@ -36,11 +36,9 @@ The operator use [json-rules-engine](https://github.com/CacheControl/json-rules-
 
 The library does not provide the functionality to check if a property exists or to return a result in the case that a drive is correct or not. This is why small variations have been introduced
 
-To check if property exists explanation for icon:
+**To check if property exists explanation for icon**:
 
 ```json
-
-// if none of the rules is met we assign default value
 'icon': {
     'default': {
                 'fill': 'rgba(121, 188, 106, 0.3)',
@@ -51,12 +49,9 @@ To check if property exists explanation for icon:
             'event': {
                 'type': 'existProp',
                 'params': {
-                    // if the object does not contain, stop all othe conditions and return success value
-                    'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/location-64.png'
-                    // we could add "failure" param to return value on fail
-                    // "failure": "https://cdn0.iconfinder.com/data/icons/4web-3/139/failure.png"
+                    'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/location-64.png'    
             },
-            // the name and the "params.property" must be have the same value
+           
             'name': 'availableSpotNumber',
             'priority': 10,
             'conditions': {
@@ -65,7 +60,6 @@ To check if property exists explanation for icon:
                         'fact': 'existProp',
                         'operator': 'equal',
                         'params': {
-                            // must be have the same value parent "name"
                             'property': 'availableSpotNumber'
                         },
                         'value': false
@@ -76,15 +70,18 @@ To check if property exists explanation for icon:
     ]  
 }       
 ```
+The default property is the result returned in the event that none of the rules is met.
+If the object does not contain the property "availableSpotNumber", stop all other conditions and return success value.
+The name and the "conditions.all.params.property" must be have the same value.
 
-Example to define template property: 
+**Example to define template property:** 
 ```json
 {
   'infoWindow': '{%OffStreetParking.html%}'
 }
 ```
 
-Complete example for offStreetParking:
+**Complete example for offStreetParking:**
 ```json
 {
     'id': 'id',
@@ -184,9 +181,7 @@ Complete example for offStreetParking:
         ]
     },
     'tooltip': 'id',
-    // $ refers to the entire object using the jsonpath
     'data': '$',
-    // will catch the first property found
     'title': [
         'name',
         'id'
@@ -309,3 +304,12 @@ Complete example for offStreetParking:
     }
 }
 ```
+In "'data': '$'," $ refers to the entire object using the jsonpath lib.
+
+```json
+'title': [
+       'name',
+       'id'
+   ],
+```
+Title will catch the value of the first property found
