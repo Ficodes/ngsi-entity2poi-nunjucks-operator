@@ -142,6 +142,45 @@ export const ngsiLDModel={
         'https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld'
     ]
 }
+export const ngsiLDmodelWithRelations={
+    "id": "urn:ngsi-ld:Road:Spain-Road-A62",
+    "type": "Road",
+    "refRoadSegment": {
+        "type": "Relationship",
+        "object": [
+            "urn:ngsi-ld:RoadSegment:Spain-RoadSegment-A62-0-355-forwards",
+            "urn:ngsi-ld:RoadSegment:Spain-RoadSegment-A62-0-355-backwards"
+        ]
+    },
+    "roadClass": {
+        "type": "Property",
+        "value": "motorway"
+    },
+    "description": {
+        "type": "Property",
+        "value": "Autov\u00eda de Castilla"
+    },
+    "responsible": {
+        "type": "Property",
+        "value": "Ministerio de Fomento - Gobierno de Espa\u00f1a"
+    },
+    "length": {
+        "type": "Property",
+        "value": 355
+    },
+    "alternateName": {
+        "type": "Property",
+        "value": "E-80"
+    },
+    "name": {
+        "type": "Property",
+        "value": "A-62"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}
 export const ngsiModelNormalized={
     id: 'Spain-WeatherObserved-Valladolid-2016-11-30T07:00:00.00Z',
     type: 'WeatherObserved',

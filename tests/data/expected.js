@@ -32,10 +32,7 @@ export const ngsiLDModelExpected={
     precipitation: 0,
     atmosphericPressure: 938.9,
     pressureTendency: 0.5,
-    refDevice: {
-        type: 'Relationship',
-        object: 'urn:ngsi-ld:Device:device-0A3478'
-    },
+    refDevice: 'urn:ngsi-ld:Device:device-0A3478',
     source: 'http://www.aemet.es',
     windSpeed: 2,
     location: {
@@ -60,6 +57,24 @@ export const ngsiLDModelExpected={
     '@context': [
         'https://schema.lab.fiware.org/ld/context',
         'https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld'
+    ]
+}
+export const ngsiModelWithRelationsExpected={
+    "id": "urn:ngsi-ld:Road:Spain-Road-A62",
+    "type": "Road",
+    "refRoadSegment": [
+        "urn:ngsi-ld:RoadSegment:Spain-RoadSegment-A62-0-355-forwards",
+        "urn:ngsi-ld:RoadSegment:Spain-RoadSegment-A62-0-355-backwards"
+    ],
+    "roadClass": "motorway",
+    "description": "Autovía de Castilla",
+    "responsible": "Ministerio de Fomento - Gobierno de España",
+    "length": 355,
+    "alternateName": "E-80",
+    "name": "A-62",
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
 export const ngsiModelNormalizedExpected={

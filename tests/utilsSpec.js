@@ -1,8 +1,8 @@
 'use strict'
 
 import { modelToJsonKeyValue, parseInputEndpointData, processLocation, buldHtmlAddress } from '../src/js/utils.js'
-import { entityWitPolygonLocation, entityWitPointLocation, ngsiLDModel, ngsiModelNormalized, ngsiModelKeyValue } from './data/models.js'
-import { ngsiLDModelExpected, ngsiModelNormalizedExpected, ngsiModelKeyValueExpected } from './data/expected.js'
+import { entityWitPolygonLocation, entityWitPointLocation, ngsiLDModel, ngsiLDmodelWithRelations, ngsiModelNormalized, ngsiModelKeyValue } from './data/models.js'
+import { ngsiLDModelExpected, ngsiModelWithRelationsExpected, ngsiModelNormalizedExpected, ngsiModelKeyValueExpected } from './data/expected.js'
 describe('Test Utils Functions', () => {
   it('test parseInputEndpointData null param', () => {
     expect(() => parseInputEndpointData(null)).to.throw('Incorrect data')
@@ -33,6 +33,9 @@ describe('Test Utils Functions', () => {
   })
   it('test modelToJsonKeyValue ngsi LD', () => {
     expect(modelToJsonKeyValue(ngsiLDModel)).to.eql(ngsiLDModelExpected)
+  })
+  it('test modelToJsonKeyValue ngsi LD WithRelations', () => {
+    expect(modelToJsonKeyValue(ngsiLDmodelWithRelations)).to.eql(ngsiModelWithRelationsExpected)
   })
   it('test modelToJsonKeyValue ngsi NORMALIZED', () => {
     expect(modelToJsonKeyValue(ngsiModelNormalized)).to.eql(ngsiModelNormalizedExpected)

@@ -3,7 +3,6 @@
 [![](https://nexus.lab.fiware.org/repository/raw/public/badges/chapters/visualization.svg)](https://www.fiware.org/developers/catalogue/)
 ![](https://img.shields.io/github/license/wirecloud-fiware/ngsi-datamodel2poi-operator.svg)<br/>
 [![Build Status](https://travis-ci.org/wirecloud-fiware/ngsi-datamodel2poi-operator.svg?branch=develop)](https://travis-ci.org/wirecloud-fiware/ngsi-datamodel2poi-operator)
-[![Coverage Status](https://coveralls.io/repos/github/wirecloud-fiware/ngsi-datamodel2poi-operator/badge.svg?branch=develop)](https://coveralls.io/github/wirecloud-fiware/ngsi-datamodel2poi-operator?branch=develop)
 
 The generic NGSI datamodel 2 PoI operator is a [WireCloud operator](http://wirecloud.readthedocs.org/en/latest/) for formating
 entities using any of the [FIWARE Data Models](https://schema.fiware.org) to be displayed inside any of the map widgets

@@ -6,7 +6,6 @@ import { internalUrl } from './utils.js'
 export const buildEngine = function () {
   const engine = new Engine()
   engine.addOperator('hasProperty', (factValue, jsonValue) => {
-    console.log(factValue, jsonValue, '***************************************************************************************')
     return factValue.hasOwnProperty && factValue.hasOwnProperty(jsonValue)
   })
   engine.addFact('existProp', (params, almanac) => {

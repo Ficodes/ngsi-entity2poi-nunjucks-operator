@@ -75,8 +75,9 @@ export function modelToJsonKeyValue (entity) {
   for (const key in entity) {
     const at = entity[key]
     if (key === 'id' || key === 'type' || typeof at !== 'object' || (typeof at === 'object' && !('value' in at))) {
-      result[key] = at
+      result[key] = at['object'] || at
     } else {
+      console.log(key)
       result[key] = at.value['@value'] || at.value
     }
   }
