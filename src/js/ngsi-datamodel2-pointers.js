@@ -81,7 +81,7 @@ export default async function NgsiDatamodelPointer (schema, keyValueEntity, enti
   poi['icon'] = {
     anchor: [0.5, 1],
     scale: 0.4,
-    src: internalUrl(poi.icon)
+    src: internalUrl(poi['icon'] || schema['icon'])
   }
   return poi
 }
