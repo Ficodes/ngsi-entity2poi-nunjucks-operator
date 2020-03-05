@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <operator xmlns="http://wirecloud.conwet.fi.upm.es/ns/macdescription/1" vendor="Vendor" name="test-generic-ngsimodel"
-          version="0.1.1a39">
+          version="0.1.1a40">
 
     <details>
         <title>FIWARE data model To PoI</title>

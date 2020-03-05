@@ -16,6 +16,9 @@ TemplateEngine.addFilter('date', function (dateStr) {
 TemplateEngine.addFilter('is_obj', function (param) {
   return typeof param === 'object'
 })
+TemplateEngine.addFilter('is_arr', function (param) {
+  return Array.isArray(param)
+})
 TemplateEngine.addFilter('addressProc', function (address) {
   return buldHtmlAddress(address)
 })
