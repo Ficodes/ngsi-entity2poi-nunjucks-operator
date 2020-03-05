@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <operator xmlns="http://wirecloud.conwet.fi.upm.es/ns/macdescription/1" vendor="Vendor" name="test-generic-ngsimodel"
-          version="0.1.1a32">
+          version="0.1.1a38">
 
     <details>
         <title>FIWARE data model To PoI</title>
@@ -34,12 +34,6 @@
                 type="text"
                 label="Assets host"
                 description="Url where the schemas,icons and templates are hosted. Example http://nginxserver.com/"
-                default=""/>
-        <preference
-                name="icons_path"
-                type="text"
-                label="Icons Path"
-                description="For example: icons ( the result will be http://nginxserver.com/icons )"
                 default=""/>
         <preference
                 name="views_path"

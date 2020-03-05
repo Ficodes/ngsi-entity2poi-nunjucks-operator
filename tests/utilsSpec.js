@@ -3,6 +3,7 @@
 import { modelToJsonKeyValue, parseInputEndpointData, processLocation, buldHtmlAddress } from '../src/js/utils.js'
 import { entityWitPolygonLocation, entityWitPointLocation, ngsiLDModel, ngsiLDmodelWithRelations, ngsiModelNormalized, ngsiModelKeyValue } from './data/models.js'
 import { ngsiLDModelExpected, ngsiModelWithRelationsExpected, ngsiModelNormalizedExpected, ngsiModelKeyValueExpected } from './data/expected.js'
+import { entityWitLandLocation } from './data/models'
 describe('Test Utils Functions', () => {
   it('test parseInputEndpointData null param', () => {
     expect(() => parseInputEndpointData(null)).to.throw('Incorrect data')
@@ -24,6 +25,12 @@ describe('Test Utils Functions', () => {
     const expected = processLocation(entity)
     expect(expected.currentLocation).to.be.an('Object')
     expect(expected.currentLocation).to.eql({ system: 'WGS84', lng: 10, lat: 0 })
+  })
+  it('test processLandLocation', () => {
+    const entity = entityWitLandLocation
+    const expected = processLocation(entity)
+    expect(expected.currentLocation).to.be.an('Object')
+    expect(expected.currentLocation).to.eql({ system: 'WGS84', lng: 100, lat: 0 })
   })
   it('test processLocation Point', () => {
     const entity = entityWitPointLocation

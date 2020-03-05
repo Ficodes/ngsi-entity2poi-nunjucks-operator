@@ -1,3 +1,5 @@
+import {OffStreetParkingLD} from "./models";
+
 export const offStreetParkingExpected={
     'id': '1',
     'icon': {
@@ -10,6 +12,7 @@ export const offStreetParkingExpected={
     },
     'tooltip': '1',
     'title': '1',
+    'data': OffStreetParkingLD,
     'infoWindow': '<div><p>Municipal car park located near the Trindade metro station and the Town Hall</p><p><b><i class="fa fa-fw fa-address-card"></i> Address: </b><br/>Rua de Fernandes Tomás<br/>Porto,<br/>Portugal</p> <br/><p><b><i class="fa fa-fw fa-clock" /> Date: </b> Thu, Jun 2, 2016 11:25 AM</p><p><i class="fa fa-fw fa-info" />4 available parking spots out of 414</p></div>',
     'location': {
         'coordinates': [

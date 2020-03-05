@@ -69,15 +69,16 @@ export default async function NgsiDatamodelPointer (schema, keyValueEntity, enti
           }
         })
       } else {
-        if (key === 'data') {
-          poi[key] = entity
-        } else {
+        if (schema[key] != '' && schema[key].constructor !== Object) {
           poi[key] = JSONPath({ wrap: false, path: schema[key], json: keyValueEntity })
+        } else {
+          poi[key] = schema[key]
         }
       }
     }
   }
-  poi.icon = {
+  poi['data'] = entity
+  poi['icon'] = {
     anchor: [0.5, 1],
     scale: 0.4,
     src: internalUrl(poi.icon)

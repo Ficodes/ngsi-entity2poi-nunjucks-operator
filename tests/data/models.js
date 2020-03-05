@@ -21,6 +21,78 @@ export const offStreetParking={
     requiredPermit: [],
     occupancyDetectionType: ['none']
 }
+export const OffStreetParkingLD={
+    "id": "urn:ngsi-ld:OffStreetParking:porto-ParkingLot-23889",
+    "type": "OffStreetParking",
+    "modifiedAt": "2016-06-02T09:25:55.00Z",
+    "category": {
+        "type": "Property",
+        "value": [
+            "underground",
+            "public",
+            "feeCharged",
+            "mediumTerm",
+            "barrierAccess"
+        ]
+    },
+    "layout": {
+        "type": "Property",
+        "value": ["multiLevel"]
+    },
+    "name": {
+        "type": "Property",
+        "value": "Parque de estacionamento Trindade"
+    },
+    "requiredPermit": {
+        "type": "Property",
+        "value": []
+    },
+    "allowedVehicleType": {
+        "type": "Property",
+        "value": ["car"]
+    },
+    "availableSpotNumber": {
+        "type": "Property",
+        "value": 132,
+        "observedAt": "2018-09-21T12:00:00Z"
+    },
+    "totalSpotNumber": {
+        "type": "Property",
+        "value": 414
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [-8.60961198807, 41.150691773]
+        }
+    },
+    "chargeType": {
+        "type": "Property",
+        "value": ["temporaryPrice"]
+    },
+    "address": {
+        "type": "Property",
+        "value": {
+            "addressLocality": "Porto",
+            "addressCountry": "Portugal",
+            "streetAddress": "Rua de Fernandes Tom\u00e1s",
+            "type": "PostalAddress"
+        }
+    },
+    "maximumParkingDuration": {
+        "type": "Property",
+        "value": "PT8H"
+    },
+    "description": {
+        "type": "Property",
+        "value": "Municipal car park located near the Trindade metro station and the Town Hall"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}
 export const entityWitPolygonLocation={
     'id': 'vehicle:WasteManagement:1',
     'type': 'Vehicle',
@@ -37,6 +109,50 @@ export const entityWitPolygonLocation={
     'serviceProvided': ['gargabeCollection', 'wasteContainerCleaning'],
     'areaServed': 'Centro',
     'refVehicleModel': 'vehiclemodel:econic'
+}
+export const entityWitLandLocation={
+    "id": "urn:ngsi-ld:AgriFarm:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+    "type": "AgriFarm",
+    "dateCreated": "2017-01-01T01:20:00Z",
+    "dateModified": "2017-05-04T12:30:00Z",
+    "name": "Wheat farm",
+    "description": "A farm producing wheat",
+    "relatedSource": [
+        {
+            "application": "urn:ngsi-ld:AgriApp:72d9fb43-53f8-4ec8-a33c-fa931360259a",
+            "applicationEntityId": "app:farm1"
+        }
+    ],
+    "seeAlso": [
+        "https://example.org/concept/farm",
+        "https://datamodel.org/example/farm"
+    ],
+    "location": {
+        "type": "Point",
+        "coordinates": [101, 0]
+    },
+    "landLocation": {
+        "type": "Polygon",
+        "coordinates": [[[100, 0], [101, 0], [101, 1], [100, 1], [100, 0]]]
+    },
+    "address": {
+        "addressLocality": "Valdepeñas",
+        "addressCountry": "ES",
+        "streetAddress": "Camino de Membrilla 17"
+    },
+    "contactPoint": {
+        "email": "wheatfarm@email.com",
+        "telephone": "00349674532"
+    },
+    "ownedBy": "urn:ngsi-ld:Person:fce9dcbc-4479-11e8-9de1-cb228de7a15c",
+    "hasBuilding": [
+        "urn:ngsi-ld:Building:a6ba44e0-4474-11e8-8ed1-ab9e0ea93827",
+        "urn:ngsi-ld:Building:d95b8874-4474-11e8-8d6b-dbe144258354"
+    ],
+    "hasAgriParcel": [
+        "urn:ngsi-ld:AgriParcel:26ba4be0-4474-11e8-8ec1-ab9e0ea93835",
+        "urn:ngsi-ld:AgriParcel:2d5b8874-4474-11e8-8d6b-dbe14425b5e4"
+    ]
 }
 export const entityWitPointLocation={
     'id': '1',

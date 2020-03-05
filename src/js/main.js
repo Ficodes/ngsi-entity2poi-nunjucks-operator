@@ -10,7 +10,7 @@
 import NgsiPointsManager from './ngsi-points-manager.js';
 
 (async () => {
-  const response = await fetch(MashupPlatform.prefs.get('schemas_host').trim(), { method: 'GET', mode: 'cors' })
+  const response = await fetch(MashupPlatform.prefs.get('schemas_file_host').trim(), { method: 'GET', mode: 'cors' })
   let schemasConf = await response.json()
 
   const schemasTypes = MashupPlatform.prefs.get('ngsi_types').trim().split(new RegExp(',\\s*')).filter(Boolean)

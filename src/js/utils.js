@@ -16,19 +16,20 @@ export function parseInputEndpointData (data) {
 
 export function processLocation (entity) {
   let coordinates
-  if (entity.location != null && typeof entity.location === 'object') {
+  const location = entity['landLocation'] || entity['location']
+  if (location != null && typeof location === 'object') {
     let latitude = 0
     let longitude = 0
-    if (entity.location.type === 'Polygon') {
-      for (var i = 0; i < entity.location.coordinates.length; i++) {
-        longitude += entity.location.coordinates[0][i][0]
-        latitude += entity.location.coordinates[0][i][1]
+    if (location.type === 'Polygon') {
+      for (var i = 0; i < location.coordinates.length; i++) {
+        longitude += location.coordinates[0][i][0]
+        latitude += location.coordinates[0][i][1]
       }
-      longitude = longitude / entity.location.coordinates.length
-      latitude = latitude / entity.location.coordinates.length
+      longitude = longitude / location.coordinates.length
+      latitude = latitude / location.coordinates.length
     } else {
-      longitude = entity.location.coordinates[0]
-      latitude = entity.location.coordinates[1]
+      longitude = location.coordinates[0]
+      latitude = location.coordinates[1]
     }
     coordinates = {
       system: 'WGS84',
@@ -77,7 +78,6 @@ export function modelToJsonKeyValue (entity) {
     if (key === 'id' || key === 'type' || typeof at !== 'object' || (typeof at === 'object' && !('value' in at))) {
       result[key] = at['object'] || at
     } else {
-      console.log(key)
       result[key] = at.value['@value'] || at.value
     }
   }
