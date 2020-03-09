@@ -96,7 +96,6 @@ export const offStreetParkingSchema = {
         ]
     },
     'tooltip': 'id',
-    'data': '$',
     'title': [
         'name',
         'id'
@@ -106,8 +105,8 @@ export const offStreetParkingSchema = {
     'location': 'location',
     'style': {
         'default': {
-            'fill': 'rgba(121, 188, 106, 0.3)',
-            'stroke': 'rgb(99, 112, 30)'
+            'fill': 'rgba(238, 194, 11, 0.3)',
+            'stroke': 'rgba(238, 194, 11, 0.9)'
         },
         'rules': [
             {
@@ -211,6 +210,421 @@ export const offStreetParkingSchema = {
                             'fact': 'availableSpotNumber',
                             'operator': 'lessThanInclusive',
                             'value': 40
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+export const AgriParcelSchema={
+    "id":"id",
+    "icon":{
+        "default":"https://cdn0.iconfinder.com/data/icons/4web-3/139/default.png",
+        "rules":[
+            {
+                "event":{
+                    "type":"existProp"
+                },
+                "name":"category",
+                "priority":10,
+                "conditions":{
+                    "all":[
+                        {
+                            "fact":"existProp",
+                            "operator":"equal",
+                            "params":{
+                                "property":"category"
+                            },
+                            "value":false
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/arable.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'arable'
+                        }
+                    ]
+                }
+            }
+            ,{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/grassland.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'grassland'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/vineyard.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'vineyard'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/orchard.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'orchard'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/mixed-crop.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'mixed crop'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/lowland.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'lowland'
+                        }
+                    ]
+                }
+            }
+            ,{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/upland.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'upland'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/set-aside.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'set-aside'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/forestry.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'forestry'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': 'https://cdn0.iconfinder.com/data/icons/4web-3/139/wetland.png'
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'wetland'
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "title":[
+        "name",
+        "id"
+    ],
+    "infoWindow":"{%AgriParcel.html%}",
+    "currentLocation":"currentLocation",
+    "location":"location",
+    "style":{
+        "default":{
+            'fill': 'rgba(238, 194, 11, 0.3)',
+            'stroke': 'rgba(238, 194, 11, 0.9)'
+        },
+        "rules":[
+            {
+                "event":{
+                    "type":"existProp"
+                },
+                "name":"category",
+                "priority":10,
+                "conditions":{
+                    "all":[
+                        {
+                            "fact":"existProp",
+                            "operator":"equal",
+                            "params":{
+                                "property":"category"
+                            },
+                            "value":false
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'arable'
+                        }
+                    ]
+                }
+            }
+            ,{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'grassland'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'vineyard'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'orchard'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'mixed crop'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'lowland'
+                        }
+                    ]
+                }
+            }
+            ,{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'upland'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'set-aside'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'forestry'
+                        }
+                    ]
+                }
+            },{
+                'event': {
+                    'type': '',
+                    'params': {
+                        'success': {
+                            'fill': 'rgba(238, 194, 11, 0.3)',
+                            'stroke': 'rgba(238, 194, 11, 0.9)'
+                        }
+                    }
+                },
+                'conditions': {
+                    'all': [
+                        {
+                            'fact': 'category',
+                            'operator': 'equal',
+                            'value': 'wetland'
                         }
                     ]
                 }

@@ -21,7 +21,6 @@ export const buildEngine = function () {
 
 export default async function NgsiDatamodelPointer (schema, keyValueEntity, entity) {
   const poi = {}
-
   for (const key in schema) {
     if (Object.prototype.hasOwnProperty.call(schema[key], 'rules')) {
       const engine = buildEngine()
@@ -32,7 +31,7 @@ export default async function NgsiDatamodelPointer (schema, keyValueEntity, enti
 
       engine.on('existProp', (params, almanac, ruleResult) => {
         if (params && Object.prototype.hasOwnProperty.call(params, 'success')) {
-          poi[key] = params.success
+          poi[key] = params['success']
           engine.stop()
         }
         almanac.addRuntimeFact(ruleResult.name, null)
@@ -40,16 +39,17 @@ export default async function NgsiDatamodelPointer (schema, keyValueEntity, enti
 
       engine.on('failure', (event, almanac, ruleResult) => {
         if (event.params && Object.prototype.hasOwnProperty.call(event.params, 'failure')) {
-          poi[key] = event.params.failure
+          poi[key] = event.params['failure']
           engine.stop()
         }
       })
 
       const result = await engine.run(keyValueEntity)
+
       if (result && Object.prototype.hasOwnProperty.call(result, 'events') && result.events.length) {
         result.events.every((event) => {
           if (event.params && Object.prototype.hasOwnProperty.call(event.params, 'success')) {
-            poi[key] = event.params.success
+            poi[key] = event.params['success']
             return false
           }
           return true
@@ -77,11 +77,13 @@ export default async function NgsiDatamodelPointer (schema, keyValueEntity, enti
       }
     }
   }
+  // if (keyValueEntity.type == 'AgriParcel') console.log(key)
   poi['data'] = entity
   poi['icon'] = {
     anchor: [0.5, 1],
     scale: 0.4,
-    src: internalUrl(poi['icon'] || schema['icon'])
+    src: internalUrl(poi['icon'] || schema['icon']['default'])
   }
+
   return poi
 }
