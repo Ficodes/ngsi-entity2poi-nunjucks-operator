@@ -304,7 +304,7 @@ The name and the "conditions.all.params.property" must be have the same value.
     }
 }
 ```
-In "'data': '$'," $ refers to the entire object using the jsonpath lib.
+In "'data': '$'," $ refers to the entire object using the [jsonpath](https://github.com/json-path/JsonPath) lib.
 
 ```json
 'title': [
