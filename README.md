@@ -53,5 +53,5 @@ available on Read the Docs.
 
 ## Copyright and License
 
-Copyright (c) 2020 Vendor
-Licensed under the MIT license.
+Copyright (c) 2020 Future Internet Consulting and Development Solutions S.L.<br/>
+Licensed under the Apache License, Version 2.0.
