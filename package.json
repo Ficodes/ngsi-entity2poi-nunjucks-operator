@@ -42,7 +42,6 @@
     "karma-mocha": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
     "mocha": "^7.0.1",
-    "mock-applicationmashup": "^1.0.0-e",
     "sinon": "^8.1.1",
     "watchify": "^3.11.1",
     "webpack": "^4.41.5",

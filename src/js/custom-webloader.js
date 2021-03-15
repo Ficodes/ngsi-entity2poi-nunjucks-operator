@@ -17,23 +17,37 @@
 import { Loader } from 'nunjucks'
 
 export default class CustomWebLoader extends Loader {
+
     constructor(baseURL, opts) {
         super()
-        if (!baseURL) {throw new Error('CustomWebLoader baseUrl param required')}
+        opts = opts || {}
+        if (!baseURL) {
+            throw new Error('CustomWebLoader baseUrl param required')
+        } else if (!baseURL.endsWith("/")) {
+            baseURL += "/"
+        }
         this.baseURL = baseURL
-        this.opts = opts || {}
+        this.useCache = !!opts.useCache;
+        this.async = !!opts.async;
     }
 
     getSource(name, cb) {
-        this.fetch(new URL(name, this.baseURL), (err, src) => {
+        const url = new URL(name, this.baseURL)
+        let result
+        this.fetch(url, (err, src) => {
             if (err) {
                 if (cb) {
                     cb(err.content)
+                } else if (err.status === 404) {
+                    result = null
+                } else {
+                    throw err.content
                 }
             } else {
-                const result = {
+                result = {
                     src: src,
-                    path: name
+                    path: name,
+                    noCache: this.useCache
                 }
                 this.emit('load', name, result)
                 if (cb) {
@@ -41,6 +55,11 @@ export default class CustomWebLoader extends Loader {
                 }
             }
         })
+
+        // if this WebLoader isn't running asynchronously, the
+        // fetch above would actually run sync and we'll have a
+        // result here
+        return result;
     }
 
     fetch(url, cb) {

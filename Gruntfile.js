@@ -163,7 +163,7 @@ module.exports = function (grunt) {
                 },
                 frameworks: ['browserify', 'mocha', 'chai'],
                 reporters: ['coverage', 'mocha'],
-                browsers: ['Chrome'],
+                browsers: ['ChromeHeadless'],
                 singleRun: true
             },
             operator: {
@@ -189,7 +189,6 @@ module.exports = function (grunt) {
             operatorci: {
                 options: {
                     reporters: ['coverage', 'mocha'],
-                    browsers: ['ChromeNoSandbox'],
                     coverageReporter: {
                         reporters: [
                             { type: 'lcov', dir: 'build/coverage', subdir: 'lcov' }
@@ -201,6 +200,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         wirecloud: {
             options: {
                 overwrite: false

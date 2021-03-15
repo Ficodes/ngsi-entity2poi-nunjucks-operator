@@ -29,6 +29,8 @@ g.MashupPlatform.prefs.get = typeof(MashupPlatform.prefs.get) === 'undefined' ? 
 } : MashupPlatform.prefs.get
 
 g.MashupPlatform.wiring = typeof(MashupPlatform.wiring) === 'undefined' ? {} : MashupPlatform.wiring
-g.MashupPlatform.wiring.EndpointTypeError = typeof(MashupPlatform.wiring.EndpointTypeError) === 'undefined' ? (message) => {
-    throw new Error(message)
-} : MashupPlatform.wiring.EndpointTypeError
+g.MashupPlatform.wiring.EndpointTypeError = class EndpointTypeError extends Error {
+    constructor(message) {
+        super(message)
+    }
+}

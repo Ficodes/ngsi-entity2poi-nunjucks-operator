@@ -40,7 +40,7 @@
                 type="text"
                 label="Views Path"
                 description="For example: views ( the result will be http://nginxserver.com/views )"
-                default=""/>
+                default="views"/>
         <preference
                 name="ngsi_types"
                 type="text"
