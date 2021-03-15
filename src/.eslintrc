@@ -1,7 +1,11 @@
 {
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
   "env": {
     "browser": true,
-    "jasmine": true
+    "es2017": true
   },
   "globals": {
     "MashupPlatform": false,
@@ -35,7 +39,8 @@
       {
         "newIsCap": true,
         "capIsNew": true,
-        "properties": true
+        "properties": true,
+        "capIsNewExceptions": ["JSONPath"]
       }
     ],
     "brace-style": [
@@ -63,7 +68,7 @@
     ],
     "func-style": [
       2,
-      "expression"
+      "declaration"
     ],
     "space-unary-ops": [
       2,

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Future Internet Consulting and Development Solutions S.L.
+ * Copyright (c) 2020-2021 Future Internet Consulting and Development Solutions S.L.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,67 +13,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* globals XMLHttpRequest */
 import { Loader } from 'nunjucks'
 
 export default class CustomWebLoader extends Loader {
-  constructor (baseURL, opts) {
-    super()
-    if (!baseURL) throw new Error('CustomWebLoader baseUrl param required')
-    this._views = new Map()
-    this.baseURL = baseURL
-    this.opts = opts || {}
-  }
-  getSource (name, cb) {
-    let result
-    if (!this._views.get(name)) {
-      this.fetch(`${this.baseURL}/${name}`, (err, src) => {
-        if (err) {
-          if (cb) {
-            cb(err.content)
-          } else if (err.status === 404) {
-            result = null
-          } else {
-            throw err.content
-          }
-        } else {
-          result = {
-            src: src,
-            path: name
-          }
-          this.emit('load', name, result)
-          if (cb) {
-            cb(null, result)
-          }
-        }
-      })
-    } else {
-      result = {
-        src: src,
-        path: name
-      }
-      this.emit('load', name, result)
-    }
-    return result
-  }
-
-  fetch (url, cb) {
-    const ajax = new XMLHttpRequest()
-    let loading = true
-    ajax.onreadystatechange = () => {
-      if (ajax.readyState === 4 && loading) {
-        loading = false
-        if (ajax.status === 0 || ajax.status === 200) {
-          cb(null, ajax.responseText)
-        } else {
-          cb({
-            status: ajax.status,
-            content: ajax.responseText
-          })
-        }
-      }
+    constructor(baseURL, opts) {
+        super()
+        if (!baseURL) {throw new Error('CustomWebLoader baseUrl param required')}
+        this.baseURL = baseURL
+        this.opts = opts || {}
     }
 
-    ajax.open('GET', url, this.async)
-    ajax.send()
-  }
+    getSource(name, cb) {
+        this.fetch(new URL(name, this.baseURL), (err, src) => {
+            if (err) {
+                if (cb) {
+                    cb(err.content)
+                }
+            } else {
+                const result = {
+                    src: src,
+                    path: name
+                }
+                this.emit('load', name, result)
+                if (cb) {
+                    cb(null, result)
+                }
+            }
+        })
+    }
+
+    fetch(url, cb) {
+        const ajax = new XMLHttpRequest()
+        let loading = true
+        ajax.onreadystatechange = () => {
+            if (ajax.readyState === 4 && loading) {
+                loading = false
+                if (ajax.status === 200) {
+                    cb(null, ajax.responseText)
+                } else {
+                    const err = new Error('Unable to retrieve the template')
+                    err.details = {
+                        status: ajax.status,
+                        content: ajax.responseText
+                    }
+                    cb(err)
+                }
+            }
+        }
+
+        ajax.open('GET', url, this.async)
+        ajax.send()
+    }
 }

@@ -233,26 +233,26 @@ export const offStreetParkingSchema = {
         ]
     }
 }
-export const AgriParcelSchema={
-    "id":"id",
-    "icon":{
-        "default":"https://cdn0.iconfinder.com/data/icons/4web-3/139/default.png",
-        "rules":[
+export const AgriParcelSchema = {
+    "id": "id",
+    "icon": {
+        "default": "https://cdn0.iconfinder.com/data/icons/4web-3/139/default.png",
+        "rules": [
             {
-                "event":{
-                    "type":"existProp"
+                "event": {
+                    "type": "existProp"
                 },
-                "name":"category",
-                "priority":10,
-                "conditions":{
-                    "all":[
+                "name": "category",
+                "priority": 10,
+                "conditions": {
+                    "all": [
                         {
-                            "fact":"existProp",
-                            "operator":"equal",
-                            "params":{
-                                "property":"category"
+                            "fact": "existProp",
+                            "operator": "equal",
+                            "params": {
+                                "property": "category"
                             },
-                            "value":false
+                            "value": false
                         }
                     ]
                 }
@@ -421,34 +421,34 @@ export const AgriParcelSchema={
             }
         ]
     },
-    "title":[
+    "title": [
         "name",
         "id"
     ],
-    "infoWindow":"{%AgriParcel.html%}",
-    "currentLocation":"currentLocation",
-    "location":"location",
-    "style":{
-        "default":{
+    "infoWindow": "{%AgriParcel.html%}",
+    "currentLocation": "currentLocation",
+    "location": "location",
+    "style": {
+        "default": {
             'fill': 'rgba(238, 194, 11, 0.3)',
             'stroke': 'rgba(238, 194, 11, 0.9)'
         },
-        "rules":[
+        "rules": [
             {
-                "event":{
-                    "type":"existProp"
+                "event": {
+                    "type": "existProp"
                 },
-                "name":"category",
-                "priority":10,
-                "conditions":{
-                    "all":[
+                "name": "category",
+                "priority": 10,
+                "conditions": {
+                    "all": [
                         {
-                            "fact":"existProp",
-                            "operator":"equal",
-                            "params":{
-                                "property":"category"
+                            "fact": "existProp",
+                            "operator": "equal",
+                            "params": {
+                                "property": "category"
                             },
-                            "value":false
+                            "value": false
                         }
                     ]
                 }

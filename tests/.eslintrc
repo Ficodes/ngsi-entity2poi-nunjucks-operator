@@ -1,8 +1,15 @@
 {
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
   "env": {
-    "node": true
+    "browser": true,
+    "jasmine": true,
+    "es2020": true
   },
   "globals": {
+    "MashupPlatform": false,
     "Promise": false,
     "WeakMap": false
   },
@@ -61,7 +68,7 @@
     ],
     "func-style": [
       2,
-      "expression"
+      "declaration"
     ],
     "space-unary-ops": [
       2,

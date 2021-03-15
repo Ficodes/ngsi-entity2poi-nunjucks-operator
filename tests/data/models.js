@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-export const offStreetParking={
+export const offStreetParking = {
     id: '1',
     type: 'OffStreetParking',
     location: {
@@ -37,7 +37,7 @@ export const offStreetParking={
     requiredPermit: [],
     occupancyDetectionType: ['none']
 }
-export const OffStreetParkingLD={
+export const OffStreetParkingLD = {
     "id": "urn:ngsi-ld:OffStreetParking:porto-ParkingLot-23889",
     "type": "OffStreetParking",
     "modifiedAt": "2016-06-02T09:25:55.00Z",
@@ -109,14 +109,14 @@ export const OffStreetParkingLD={
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
-export const entityWitPolygonLocation={
+export const entityWitPolygonLocation = {
     'id': 'vehicle:WasteManagement:1',
     'type': 'Vehicle',
     'vehicleType': 'lorry',
     'category': ['municipalServices'],
     'location': {
         'type': 'Polygon',
-        'coordinates': [ [ [ 10, 0], [0, 10], [0, 0], [10, 0] ] ]
+        'coordinates': [[[10, 0], [0, 10], [0, 0], [10, 0]]]
     },
     'name': 'C Recogida 1',
     'speed': 50,
@@ -126,7 +126,7 @@ export const entityWitPolygonLocation={
     'areaServed': 'Centro',
     'refVehicleModel': 'vehiclemodel:econic'
 }
-export const entityWitLandLocation={
+export const entityWitLandLocation = {
     "id": "urn:ngsi-ld:AgriFarm:72d9fb43-53f8-4ec8-a33c-fa931360259a",
     "type": "AgriFarm",
     "dateCreated": "2017-01-01T01:20:00Z",
@@ -170,7 +170,7 @@ export const entityWitLandLocation={
         "urn:ngsi-ld:AgriParcel:2d5b8874-4474-11e8-8d6b-dbe14425b5e4"
     ]
 }
-export const entityWitPointLocation={
+export const entityWitPointLocation = {
     'id': '1',
     'type': 'OffStreetParking',
     'location': {
@@ -184,7 +184,7 @@ export const entityWitPointLocation={
     'requiredPermit': [],
     'occupancyDetectionType': ['none']
 }
-export const ngsiLDModel={
+export const ngsiLDModel = {
     id: 'urn:ngsi-ld:WeatherObserved:Spain-WeatherObserved-Valladolid-2016-11-30T07:00:00.00Z',
     type: 'WeatherObserved',
     dateObserved: {
@@ -274,7 +274,7 @@ export const ngsiLDModel={
         'https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld'
     ]
 }
-export const ngsiLDmodelWithRelations={
+export const ngsiLDmodelWithRelations = {
     "id": "urn:ngsi-ld:Road:Spain-Road-A62",
     "type": "Road",
     "refRoadSegment": {
@@ -313,7 +313,7 @@ export const ngsiLDmodelWithRelations={
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
-export const ngsiModelNormalized={
+export const ngsiModelNormalized = {
     id: 'Spain-WeatherObserved-Valladolid-2016-11-30T07:00:00.00Z',
     type: 'WeatherObserved',
     dateObserved: {
@@ -381,7 +381,7 @@ export const ngsiModelNormalized={
         value: 20
     }
 }
-export const ngsiModelKeyValue={
+export const ngsiModelKeyValue = {
     id: 'Spain-WeatherObserved-2422-2016-11-30T08:00:00',
     type: 'WeatherObserved',
     address: {
@@ -406,7 +406,7 @@ export const ngsiModelKeyValue={
     windSpeed: 2,
     illuminance: 1000
 }
-export const AgriParcel={
+export const AgriParcel = {
     "id": "urn:ngsi-ld:AgriParcel:72d9fb43-53f8-4ec8-a33c-fa931360259a",
     "type": "AgriParcel",
     "dateCreated": "2017-01-01T01:20:00Z",

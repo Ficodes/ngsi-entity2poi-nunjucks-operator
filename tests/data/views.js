@@ -34,7 +34,7 @@ export const  MOCK_VIEW = `
 
 `
 
-export const AGRI_PARCEL_MOCK_VIEW=`
+export const AGRI_PARCEL_MOCK_VIEW = `
 <style>
     .list-group {
         display: flex;

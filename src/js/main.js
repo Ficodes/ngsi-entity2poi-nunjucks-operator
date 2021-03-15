@@ -13,25 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict'
+
 
 import NgsiPointsManager from './ngsi-points-manager.js';
 
 (async () => {
-  const response = await fetch(MashupPlatform.prefs.get('schemas_file_host').trim(), { method: 'GET', mode: 'cors' })
-  let schemasConf = await response.json()
+    const response = await fetch(MashupPlatform.prefs.get('schemas_file_host').trim(), { method: 'GET', mode: 'cors' })
+    let schemasConf = await response.json()
 
-  const schemasTypes = MashupPlatform.prefs.get('ngsi_types').trim().split(new RegExp(',\\s*')).filter(Boolean)
-  if (schemasTypes.length > 0) {
-    schemasConf = schemasConf.filter(schemaconf => schemasTypes.includes(schemaconf.type))
-  }
-  const ngsiPointsManager = new NgsiPointsManager()
-  ngsiPointsManager.addSchemas(schemasConf)
+    const schemasTypes = MashupPlatform.prefs.get('ngsi_types').trim().split(new RegExp(',\\s*')).filter(Boolean)
+    if (schemasTypes.length > 0) {
+        schemasConf = schemasConf.filter(schemaconf => schemasTypes.includes(schemaconf.type))
+    }
+    const ngsiPointsManager = new NgsiPointsManager()
+    ngsiPointsManager.addSchemas(schemasConf)
 
-  if (window.MashupPlatform != null) {
-    MashupPlatform.wiring.registerCallback('EntityInput', async (entities) => {
-      let data = await ngsiPointsManager.getPoints(entities)
-      MashupPlatform.wiring.pushEvent('poiOutput', data)
-    })
-  }
+    if (window.MashupPlatform != null) {
+        MashupPlatform.wiring.registerCallback('EntityInput', async (entities) => {
+            let data = await ngsiPointsManager.getPoints(entities)
+            MashupPlatform.wiring.pushEvent('poiOutput', data)
+        })
+    }
 })()
